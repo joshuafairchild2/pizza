@@ -6,7 +6,7 @@
     <script src='js/jquery-3.1.1.js'></script>
     <script src='js/scripts.js'></script>
     <meta name="viewport" content="width=500, initial-scale=1">
-    <title>Order Pizza</title>                                           <!---  CHANGE ME (THE TITLE)  --->
+    <title>Order Pizza</title>                           <!---  CHANGE ME (THE TITLE)  --->
   </head>
   <body>
     <h1 class="text-center jumbotron">Paul's Pizza</h1>
@@ -78,9 +78,13 @@
       </form>
       <form id='customer-info'>
         <h4>Please provide your name, payment method and address for delivery</h4>
-        <label for="customer-name">Your name</label>
         <div class="form-group">
+          <label for="customer-name">Your name</label>
           <input type="text" class='form-control' id='customer-name' placeholder="Your first and last name">
+        </div>
+        <div class="form-group">
+          <label for="customer-number">Your phone number (so we can contact you if there are any issues)</label>
+          <input type="text" class="form-control" id="customer-number">
         </div>
         <div class="form-group">
           <label for="customer-address">Delivery address</label>
@@ -90,14 +94,18 @@
           <label for="cash-or-card">Will you be paying with cash or card?</label>
           <select class='form-control' id='cash-or-card'>
             <option value="">Payment method</option>
-            <option value="cash">Cash</option>
-            <option value="card">Card</option>
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
           </select>
         </div>
         <button type="submit" class="btn">Confirm Delivery</button>
       </form>
-      <div id="output">
-
+      <div id="confirmation">
+        <span id='name'></span><br>
+        <span id='number'></span><br>
+        <span id='address'></span><br>
+        <span id='payment-method'></span><br>
+        <span id='total'></span>
       </div>
     </div>
   </body>

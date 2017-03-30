@@ -10,13 +10,22 @@ Pizza.prototype.findPrice = function() {
   return price;
 }
 
+function Customer(name, number, address, paymentMethod, orderTotal) {
+  this.fullName = name;
+  this.number = number;
+  this.address = address;
+  this.paymentMethod = paymentMethod;
+  this.orderTotal = orderTotal;
+}
+
 // function Order() {
 //
 // }
-//
-// function Customer(name, address) {
+
+// Order.protoyype.findTotal = function() {
 //
 // }
+
 
 $(function() {
   $('form#add-pizza').submit(function(event) {
@@ -27,7 +36,24 @@ $(function() {
     var newPizza = new Pizza(selectedSize, selectedSauce, checkedToppings, checkedCheeses);
     var newPizzaPrice = newPizza.findPrice();
 
-    $('#output').text('Cost: $' + newPizzaPrice.toFixed(2));
+
+    $('form#customer-info').submit(function(event) {
+      var inputName = $('input#customer-name').val();
+      var inputNumber = $('input#customer-number').val();
+      var inputAddress = $('input#customer-address').val();
+      var inputPaymentMethod = $('select#cash-or-card').val();
+      var customer = new Customer(inputName, inputNumber, inputAddress, inputPaymentMethod, newPizzaPrice);
+
+
+      $('#name').text(customer.fullName);
+      $('#number').text(customer.number);
+      $('#address').text(customer.address);
+      $('#payment-method').text(customer.paymentMethod);
+      $('#total').text(customer.orderTotal);
+      event.preventDefault();
+    });
+
+
     event.preventDefault();
   });
 });
