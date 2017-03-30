@@ -12,7 +12,7 @@
     <h1 class="text-center jumbotron">Paul's Pizza</h1>
     <div class="container">
       <div id="order-helper">
-        <h4>Your order: <span id='pizzas'>0</span> Pizzas, <span id='drinks'>0</span> Drinks, <span id='extras'>0</span> Extras.</h4>
+        <h4>Your order: <span id='pizzas'>0</span> Pizza(s), <span id='drinks'>0</span> Drink(s), <span id='extras'>0</span> Extra(s).</h4>
       </div>
       <form id='add-pizza'>
         <div class="form-group">
@@ -84,51 +84,56 @@
           </div>
         </div>
         <button type="submit" class="btn">Add Pizza</button>
+        <span class="btn btn-info" id='pizza-continue-btn'>Continue</span>
       </form>
-      <form id='drinks/extras'>
+      <div id='drinks/extras'>
         <h2>Would you like to add anything else?</h2>
         <div class="row">
           <div class="col-xs-6">
-            <h4>Drinks</h4>
-            <div class="form-group">
-              <div class="radio">
-                <label><input type="radio" name="drinks">Pepsi</label>
+            <form id='add-drinks'>
+              <h4>Drinks</h4>
+              <div class="form-group">
+                <div class="radio">
+                  <label><input type="radio" name="drinks">Pepsi</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="drinks">Iced Tea</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="drinks">Mountain Dew</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="drinks">Dr. Pepper</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="drinks">Lemonade</label>
+                </div>
+                <button class="btn" type="submit">Add to Order</button>
               </div>
-              <div class="radio">
-                <label><input type="radio" name="drinks">Iced Tea</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="drinks">Mountain Dew</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="drinks">Dr. Pepper</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="drinks">Lemonade</label>
-              </div>
-              <span class="btn btn-info" id='add-drink'>Add to Order</span>
-            </div>
+            </form>
           </div>
           <div class="col-xs-6">
-            <h4>Sides and Desserts</h4>
-            <div class="form-group">
-              <div class="radio">
-                <label><input type="radio" name="extras" value="5">Dessert Pizza</label>
+            <form id='add-extras'>
+              <h4>Sides and Desserts</h4>
+              <div class="form-group">
+                <div class="radio">
+                  <label><input type="radio" name="extras">Dessert Pizza</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="extras">Brookie</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="extras">Breadsticks with our famous dipping sauce</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="extras">Garlic Knots</label>
+                </div>
+                <button class="btn" type="submit">Add to Order</button>
               </div>
-              <div class="radio">
-                <label><input type="radio" name="extras" value="2.5">Brookie</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="extras" value="3">Breadsticks with our famous dipping sauce</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="extras" value="3">Garlic Knots</label>
-              </div>
-              <span class="btn btn-info">Add to Order</span>
-            </div>
+            </form>
           </div>
         </div>
-      </form>
+      </div>
       <form id='customer-info'>
         <h4>Please provide your name, payment method and address for delivery</h4>
         <div class="form-group">

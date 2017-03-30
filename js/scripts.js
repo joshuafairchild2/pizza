@@ -40,6 +40,23 @@ $(function() {
     var newPizza = new Pizza(selectedSize, selectedSauce, checkedToppings, checkedCheeses);
     var newPizzaPrice = newPizza.findPrice();
     order.pizzas.push(newPizza);
+    $('#order-helper #pizzas').text(order.pizzas.length);
+
+
+    $('form#add-drinks').submit(function(event) {
+      order.drinks += parseInt($('input:radio[name=drinks]:checked').length);
+      $('#order-helper #drinks').text(order.drinks);
+      $(this).trigger('reset');
+      event.preventDefault();
+    });
+
+
+    $('form#add-extras').submit(function(event) {
+      order.extras += parseInt($('input:radio[name=extras]:checked').length);
+      $('#order-helper #extras').text(order.extras);
+      $(this).trigger('reset');
+      event.preventDefault();
+    });
 
 
     $('form#customer-info').submit(function(event) {
