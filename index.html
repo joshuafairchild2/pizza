@@ -11,6 +11,9 @@
   <body>
     <h1 class="text-center jumbotron">Paul's Pizza</h1>
     <div class="container">
+      <div id="order-helper">
+        <h4>Your order: <span id='pizzas'>0</span> Pizzas, <span id='drinks'>0</span> Drinks, <span id='extras'>0</span> Extras.</h4>
+      </div>
       <form id='add-pizza'>
         <div class="form-group">
           <label for="select-size">What size pizza would you like?</label>
@@ -32,49 +35,99 @@
             <option value="2.5">Parmesan white sauce</option>
           </select>
         </div>
-        <div class="form-group" id='select-toppings'>
-          <label id='toppings-label'>Pick as many toppings as you'd like:</label>
-          <div class="checkbox">
-            <label><input type="checkbox" name="toppings" value="pepperoni">Pepperoni</label>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group" id='select-toppings'>
+              <label id='toppings-label'>Pick as many toppings as you'd like:</label>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="pepperoni">Pepperoni</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="mushrooms">Mushrooms</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="olives">Olives</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="ham">Canadian Bacon</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="onions">Onions</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="pineapple">Pineapple</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="bacon">Bacon</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="toppings" value="green-peppers">Green Peppers</label>
+              </div>
+            </div>
           </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="toppings" value="mushrooms">Mushrooms</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="toppings" value="olives">Olives</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="toppings" value="ham">Canadian Bacon</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="toppings" value="onions">Onions</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="toppings" value="pineapple">Pineapple</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="toppings" value="bacon">Bacon</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="toppings" value="green-peppers">Green Peppers</label>
-          </div>
-        </div>
-        <div class="form-group" id='select-cheeses'>
-          <label for="cheeses-label">Select which cheese(s) you'd like on your pizza:</label>
-          <div class="checkbox">
-            <label><input type="checkbox" name="cheeses" value="mozzarella">Smoked mozzarella</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="cheeses" value="provolone">Provolone</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="cheeses" value="parmesan">Parmesan</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" name="cheeses" value="ricotta">Ricotta</label>
+          <div class="col-xs-6">
+            <div class="form-group" id='select-cheeses'>
+              <label for="cheeses-label">Select which cheese(s) you'd like on your pizza:</label>
+              <div class="checkbox">
+                <label><input type="checkbox" name="cheeses" value="mozzarella">Smoked mozzarella</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="cheeses" value="provolone">Provolone</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="cheeses" value="parmesan">Parmesan</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" name="cheeses" value="ricotta">Ricotta</label>
+              </div>
+            </div>
           </div>
         </div>
         <button type="submit" class="btn">Add Pizza</button>
+      </form>
+      <form id='drinks/extras'>
+        <h2>Would you like to add anything else?</h2>
+        <div class="row">
+          <div class="col-xs-6">
+            <h4>Drinks</h4>
+            <div class="form-group">
+              <div class="radio">
+                <label><input type="radio" name="drinks">Pepsi</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="drinks">Iced Tea</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="drinks">Mountain Dew</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="drinks">Dr. Pepper</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="drinks">Lemonade</label>
+              </div>
+              <span class="btn btn-info" id='add-drink'>Add to Order</span>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <h4>Sides and Desserts</h4>
+            <div class="form-group">
+              <div class="radio">
+                <label><input type="radio" name="extras" value="5">Dessert Pizza</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="extras" value="2.5">Brookie</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="extras" value="3">Breadsticks with our famous dipping sauce</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="extras" value="3">Garlic Knots</label>
+              </div>
+              <span class="btn btn-info">Add to Order</span>
+            </div>
+          </div>
+        </div>
       </form>
       <form id='customer-info'>
         <h4>Please provide your name, payment method and address for delivery</h4>

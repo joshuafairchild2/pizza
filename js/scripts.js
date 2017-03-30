@@ -18,16 +18,20 @@ function Customer(name, number, address, paymentMethod, orderTotal) {
   this.orderTotal = orderTotal;
 }
 
-// function Order() {
-//
-// }
+function Order() {
+  this.pizzas = [];
+  this.drinks = 0;
+  this.extras = 0;
+  this.customer = [];
+}
 
-// Order.protoyype.findTotal = function() {
+// Order.protoype.findTotal = function() {
 //
 // }
 
 
 $(function() {
+  var order = new Order();
   $('form#add-pizza').submit(function(event) {
     var selectedSize = parseInt($('select#select-size').val());
     var selectedSauce = parseInt($('select#select-sauce').val());
@@ -35,6 +39,7 @@ $(function() {
     var checkedCheeses = parseInt($('input:checkbox[name=cheeses]:checked').length);
     var newPizza = new Pizza(selectedSize, selectedSauce, checkedToppings, checkedCheeses);
     var newPizzaPrice = newPizza.findPrice();
+    order.pizzas.push(newPizza);
 
 
     $('form#customer-info').submit(function(event) {
@@ -43,6 +48,8 @@ $(function() {
       var inputAddress = $('input#customer-address').val();
       var inputPaymentMethod = $('select#cash-or-card').val();
       var customer = new Customer(inputName, inputNumber, inputAddress, inputPaymentMethod, newPizzaPrice);
+      order.customer.push(customer);
+      console.log(order);
 
 
       $('#name').text(customer.fullName);
