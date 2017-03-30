@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text.css">
-    <link href="css/styles.css" rel="stylesheet" type="text.css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src='js/jquery-3.1.1.js'></script>
     <script src='js/scripts.js'></script>
     <meta name="viewport" content="width=500, initial-scale=1">
     <title>Order Pizza</title>                                           <!---  CHANGE ME (THE TITLE)  --->
   </head>
   <body>
+    <h1 class="text-center jumbotron">Paul's Pizza</h1>
     <div class="container">
-
+      <form id='add-pizza'>
+        <div class="form-group" id='select-toppings'>
+          <label id='toppings-label'>Select your toppings:</label>
+          <div class="checkbox">
+            <label><input type="checkbox" name="toppings" value="pepperoni">Pepperoni</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="toppings" value="mushrooms">Mushrooms</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="toppings" value="olives">Olives</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="toppings" value="ham">Canadian Bacon</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="toppings" value="onions">Onions</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="toppings" value="pineapple">Pineapple</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="toppings" value="bacon">Bacon</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="toppings" value="green-peppers">Green Peppers</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <select class="form-control" id='select-size'>
+            <option value="">Choose size</option>
+            <option value="10">Small</option>
+            <option value="12">Medium</option>
+            <option value="14">Large</option>
+            <option value="16">Extra Large</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Add Pizza</button>
+      </form>
     </div>
   </body>
 </html>
