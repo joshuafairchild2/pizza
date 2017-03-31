@@ -180,10 +180,25 @@
           <div class="col-md-6">
             <div class="confirmation-col">
               <h2>The Goods</h2>
-              <p><span class='pizzas'></span></p><br>
-              <p><span class='drinks'></span></p><br>
-              <p><span class='extras'></span></p><br>
-              <p></p>
+              <div class="row">
+                <div class="col-xs-4">
+                  <p class="receipt-section">Pizzas</p>
+                  <p class='pizzas'></p>
+                </div>
+                <div class="col-xs-4">
+                  <p class="receipt-section">Drinks</p>
+                  <p class='drinks'></p>
+                </div>
+                <div class="col-xs-4">
+                  <p class="receipt-section">Extras</p>
+                  <p class='extras'></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p>Total: $<span id='output-total'></span></p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-sm-6">
