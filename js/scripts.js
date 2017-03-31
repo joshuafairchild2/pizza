@@ -62,8 +62,15 @@ $(function() {
     }
   });
 
+
   $('#item-modal-btn').click(function() {
     $('#item-added').modal('hide');
+  });
+
+
+  $('#back-btn').click(function() {
+    $('#drinks-extras').hide();
+    $('#add-pizza').show();
   });
 
 

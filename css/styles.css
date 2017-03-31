@@ -9,16 +9,16 @@ body {
 
 #drinks-extras {
   font-size: 18px;
-  /*display: none;*/
+  display: none;
 }
 
 #customer-info {
   font-size: 18px;
-  /*display: none;*/
+  display: none;
 }
 
 #confirmation {
-  /*display: none;*/
+  display: none;
 }
 
 #order-helper {
@@ -48,6 +48,10 @@ body {
   font-weight: bolder;
   font-family: lobster;
   border-bottom: 8px solid black;
+}
+
+#back-btn {
+  background-color: #a9a9a9;
 }
 
 #add-pizza-btn, #item-modal-btn {
