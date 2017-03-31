@@ -10,12 +10,11 @@ Pizza.prototype.findPrice = function() {
   return price;
 }
 
-function Customer(name, number, address, paymentMethod, orderTotal) {
+function Customer(name, number, address, paymentMethod) {
   this.fullName = name;
   this.number = number;
   this.address = address;
   this.paymentMethod = paymentMethod;
-  this.orderTotal = orderTotal;
 }
 
 function Order() {
@@ -41,39 +40,62 @@ $(function() {
     var newPizzaPrice = newPizza.findPrice();
     order.pizzas.push(newPizza);
     $('#order-helper #pizzas').text(order.pizzas.length);
+    $(this).trigger('reset');
+    $('#item-added').modal('show');
+    $('#item').text('Pizza');
 
+    $('#item-modal-btn').click(function() {
+      $('#item-added').modal('hide');
+    });
+
+    $('#continue-btn1').click(function() {
+      $('#add-pizza').hide();
+      $('#drinks-extras').show();
+    });
 
     $('form#add-drinks').submit(function(event) {
-      order.drinks += parseInt($('input:radio[name=drinks]:checked').length);
-      $('#order-helper #drinks').text(order.drinks);
-      $(this).trigger('reset');
+      var selectedDrink = $('input:radio[name=drinks]:checked');
+      if (selectedDrink.val()) {
+        order.drinks += parseInt(selectedDrink.length);
+        $('#order-helper #drinks').text(order.drinks);
+        $(this).trigger('reset');
+        $('#item-added').modal('show');
+        $('#item').text('1 ' + selectedDrink.val())
+      }
       event.preventDefault();
     });
-
 
     $('form#add-extras').submit(function(event) {
-      order.extras += parseInt($('input:radio[name=extras]:checked').length);
-      $('#order-helper #extras').text(order.extras);
-      $(this).trigger('reset');
+      var selectedExtra = $('input:radio[name=extras]:checked');
+      if (selectedExtra.val()) {
+        order.extras += parseInt(selectedExtra.length);
+        $('#order-helper #extras').text(order.extras);
+        $(this).trigger('reset');
+        $('#item-added').modal('show');
+        $('#item').text(selectedExtra.val());
+      }
       event.preventDefault();
     });
 
+    $('#continue-btn2').click(function() {
+      $('#drinks-extras').hide();
+      $('#customer-info').show();
+    });
 
     $('form#customer-info').submit(function(event) {
       var inputName = $('input#customer-name').val();
       var inputNumber = $('input#customer-number').val();
       var inputAddress = $('input#customer-address').val();
       var inputPaymentMethod = $('select#cash-or-card').val();
-      var customer = new Customer(inputName, inputNumber, inputAddress, inputPaymentMethod, newPizzaPrice);
+      var customer = new Customer(inputName, inputNumber, inputAddress, inputPaymentMethod);
       order.customer.push(customer);
-      console.log(order);
 
-
+      $('#customer-info').hide();
+      $('#confirmation').show();
       $('#name').text(customer.fullName);
       $('#number').text(customer.number);
       $('#address').text(customer.address);
       $('#payment-method').text(customer.paymentMethod);
-      $('#total').text(customer.orderTotal);
       event.preventDefault();
     });
 

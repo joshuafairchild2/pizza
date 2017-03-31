@@ -6,19 +6,32 @@
     <script src='js/jquery-3.1.1.js'></script>
     <script src='js/scripts.js'></script>
     <meta name="viewport" content="width=500, initial-scale=1">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <title>Order Pizza</title>                           <!---  CHANGE ME (THE TITLE)  --->
   </head>
+  <div class="modal fade" role='dialog' id='item-added'>
+    <div class="modal-dialog" role="doucment">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4><span id='item'></span> added to your order!</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-block" id='item-modal-btn'>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <body>
-    <h1 class="text-center jumbotron">Paul's Pizza</h1>
+    <h1 id='page-title'>Paul's Pizza</h1>
     <div class="container">
       <div id="order-helper">
-        <h4>Your order: <span id='pizzas'>0</span> Pizza(s), <span id='drinks'>0</span> Drink(s), <span id='extras'>0</span> Extra(s).</h4>
+        <h4>Your order: <span id='pizzas'>0</span> Pizza(s), <span id='drinks'>0</span> Drink(s), <span id='extras'>0</span> Extra(s)</h4>
       </div>
-      <form id='add-pizza'>
+      <form id='add-pizza' class="well">
         <div class="form-group">
           <label for="select-size">What size pizza would you like?</label>
           <select class="form-control" id='select-size'>
-            <option value="">Choose size</option>
+            <option value="" disabled selected hidden>Choose size</option>
             <option value="10">Small (10 inch)</option>
             <option value="12">Medium (12 inch)</option>
             <option value="14">Large (14 inch)</option>
@@ -28,7 +41,7 @@
         <div class="form-group">
           <label for="select-sauce">Select which sauce you would like:</label>
           <select class="form-control" id='select-sauce'>
-            <option value="">Choose sauce</option>
+            <option value="" disabled selected hidden>Choose sauce</option>
             <option value="0">Tomato sauce</option>
             <option value="1">BBQ sauce</option>
             <option value="2">Pesto</option>
@@ -36,8 +49,8 @@
           </select>
         </div>
         <div class="row">
-          <div class="col-xs-6">
-            <div class="form-group" id='select-toppings'>
+          <div class="col-xs-6" id='toppings'>
+            <div class="form-group">
               <label id='toppings-label'>Pick as many toppings as you'd like:</label>
               <div class="checkbox">
                 <label><input type="checkbox" name="toppings" value="pepperoni">Pepperoni</label>
@@ -65,8 +78,8 @@
               </div>
             </div>
           </div>
-          <div class="col-xs-6">
-            <div class="form-group" id='select-cheeses'>
+          <div class="col-xs-6" id='cheeses'>
+            <div class="form-group">
               <label for="cheeses-label">Select which cheese(s) you'd like on your pizza:</label>
               <div class="checkbox">
                 <label><input type="checkbox" name="cheeses" value="mozzarella">Smoked mozzarella</label>
@@ -83,10 +96,10 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn">Add Pizza</button>
-        <span class="btn btn-info" id='pizza-continue-btn'>Continue</span>
+        <button type="submit" class="btn btn-block btn-lg" id='add-pizza-btn'>Add Pizza</button>
+        <span class="btn btn-default btn-block btn-lg" id='continue-btn1'>Continue</span>
       </form>
-      <div id='drinks/extras'>
+      <div id='drinks-extras' class="well">
         <h2>Would you like to add anything else?</h2>
         <div class="row">
           <div class="col-xs-6">
@@ -94,21 +107,21 @@
               <h4>Drinks</h4>
               <div class="form-group">
                 <div class="radio">
-                  <label><input type="radio" name="drinks">Pepsi</label>
+                  <label><input type="radio" name="drinks" value="Pepsi">Pepsi</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" name="drinks">Iced Tea</label>
+                  <label><input type="radio" name="drinks" value="Iced Tea">Iced Tea</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" name="drinks">Mountain Dew</label>
+                  <label><input type="radio" name="drinks" value="Mountain Dew">Mountain Dew</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" name="drinks">Dr. Pepper</label>
+                  <label><input type="radio" name="drinks" value="Dr. Pepper">Dr. Pepper</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" name="drinks">Lemonade</label>
+                  <label><input type="radio" name="drinks" value="Lemonade">Lemonade</label>
                 </div>
-                <button class="btn" type="submit">Add to Order</button>
+                <button class="btn" type="submit" id='add-drink-btn'>Add to Order</button>
               </div>
             </form>
           </div>
@@ -117,24 +130,25 @@
               <h4>Sides and Desserts</h4>
               <div class="form-group">
                 <div class="radio">
-                  <label><input type="radio" name="extras">Dessert Pizza</label>
+                  <label><input type="radio" name="extras" value="Dessert pizza">Dessert Pizza</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" name="extras">Brookie</label>
+                  <label><input type="radio" name="extras" value="One brookie">Brookie</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" name="extras">Breadsticks with our famous dipping sauce</label>
+                  <label><input type="radio" name="extras" value="Breadsticks">Breadsticks with our famous dipping sauce</label>
                 </div>
                 <div class="radio">
-                  <label><input type="radio" name="extras">Garlic Knots</label>
+                  <label><input type="radio" name="extras" value="Garlic knots">Garlic Knots</label>
                 </div>
-                <button class="btn" type="submit">Add to Order</button>
+                <button class="btn" type="submit" id='add-extra-btn'>Add to Order</button>
               </div>
             </form>
           </div>
         </div>
+        <button class="btn btn-block btn-lg" id='continue-btn2'>Continue</button>
       </div>
-      <form id='customer-info'>
+      <form id='customer-info' class="well">
         <h4>Please provide your name, payment method and address for delivery</h4>
         <div class="form-group">
           <label for="customer-name">Your name</label>
@@ -151,19 +165,26 @@
         <div class="form-group">
           <label for="cash-or-card">Will you be paying with cash or card?</label>
           <select class='form-control' id='cash-or-card'>
-            <option value="">Payment method</option>
-            <option value="Cash">Cash</option>
-            <option value="Card">Card</option>
+            <option value="" disabled selected hidden>Payment method</option>
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
           </select>
         </div>
-        <button type="submit" class="btn">Confirm Delivery</button>
+        <button type="submit" class="btn btn-block btn-lg" id='confirmation-btn'>Confirm Delivery</button>
       </form>
-      <div id="confirmation">
-        <span id='name'></span><br>
-        <span id='number'></span><br>
-        <span id='address'></span><br>
-        <span id='payment-method'></span><br>
-        <span id='total'></span>
+      <div id="confirmation" class="well">
+        <h1>Your order has been placed</h1>
+        <div class="row">
+          <div class="col-xs-6">
+            <h3>Your Order</h3>
+          </div>
+          <div class="col-xs-6">
+            <h3>Order Details</h3>
+            <p>Order will be delivered to: <br>
+            <span id='name'></span> at <span id='address'></span>, before <span id='est-time'></span>. Please have your <span id='payment-method'></span> ready for our driver.</p>
+          </div>
+          <h2>Thank you!</h2>
+        </div>
       </div>
     </div>
   </body>

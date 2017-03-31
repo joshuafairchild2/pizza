@@ -1,0 +1,79 @@
+body {
+  background-color: #efefef;
+}
+
+#add-pizza {
+
+}
+
+#drinks-extras {
+  display: none;
+}
+
+#customer-info {
+  display: none;
+}
+
+#confirmation {
+  display: none;
+}
+
+#order-helper {
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#order-helper h4 {
+  margin-top: 0px;
+  border-right: 3px black solid;
+  border-bottom: 3px black solid;
+  border-left: 3px black solid;
+  padding: 8px;
+  border-radius: 0 0 15px 15px;;
+  background-color: #CAEBF2;
+  font-weight: bold;
+}
+
+#page-title {
+  text-align: center;
+  margin: 0;
+  padding: 60px;
+  color: #a9a9a9;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: bolder;
+  border-bottom: 8px solid black;
+}
+
+#add-drink-btn, #add-extra-btn, #add-pizza-btn, #item-modal-btn {
+  background-color: #d9534f;
+}
+
+#continue-btn1, #continue-btn2, #confirmation-btn {
+  background-color: #a9a9a9;
+}
+
+.well {
+  margin-top: 10px;
+  background-color: #CAEBF2;
+}
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
