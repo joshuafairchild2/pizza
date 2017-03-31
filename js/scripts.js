@@ -123,4 +123,8 @@ $(function() {
       $('#payment-method').text(customer.paymentMethod);
     }
   });
+
+  $('#refresh-btn').click(function() {
+    location.reload();
+  });
 });

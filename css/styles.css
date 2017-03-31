@@ -97,6 +97,11 @@ body {
   font-size: 40px;
 }
 
+#refresh-btn {
+  margin-top: 50px;
+  background-color: #a9a9a9;
+}
+
 .well {
   margin-top: 10px;
   background-color: #CAEBF2;
