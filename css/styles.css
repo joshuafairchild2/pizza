@@ -1,21 +1,24 @@
 body {
   background-color: #efefef;
+  font-family: fjalla one;
 }
 
 #add-pizza {
-
+  font-size: 18px;
 }
 
 #drinks-extras {
-  display: none;
+  font-size: 18px;
+  /*display: none;*/
 }
 
 #customer-info {
-  display: none;
+  font-size: 18px;
+  /*display: none;*/
 }
 
 #confirmation {
-  display: none;
+  /*display: none;*/
 }
 
 #order-helper {
@@ -39,24 +42,61 @@ body {
   text-align: center;
   margin: 0;
   padding: 60px;
-  color: #a9a9a9;
-  font-size: 80px;
-  font-style: italic;
+  color: #efefef;
+  background-color: #d9534f;
+  font-size: 90px;
   font-weight: bolder;
+  font-family: lobster;
   border-bottom: 8px solid black;
 }
 
-#add-drink-btn, #add-extra-btn, #add-pizza-btn, #item-modal-btn {
+#add-pizza-btn, #item-modal-btn {
   background-color: #d9534f;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#add-drink-btn, #add-extra-btn {
+  background-color: #d9534f;
+  font-size: 18px;
 }
 
 #continue-btn1, #continue-btn2, #confirmation-btn {
   background-color: #a9a9a9;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#customer-info-title {
+  margin-bottom: 30px;
+}
+
+#order-placed {
+  text-decoration: underline;
+  margin-left: 30px;
+}
+
+#order-details {
+  font-size: 22px;
+}
+
+#thank-you {
+  text-align: center;
+  font-size: 50px;
+}
+
+#signature {
+  text-decoration: underline;
+  font-family: lobster;
+  color: #d9534f;
+  text-align: center;
+  font-size: 40px;
 }
 
 .well {
   margin-top: 10px;
   background-color: #CAEBF2;
+  padding: 25px;
 }
 
 .modal {
@@ -76,4 +116,15 @@ body {
   display: inline-block;
   text-align: left;
   vertical-align: middle;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.confirmation-col {
+  background-color: #efefef;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 30px;
 }

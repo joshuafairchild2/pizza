@@ -39,7 +39,7 @@ $(function() {
     var newPizza = new Pizza(selectedSize, selectedSauce, checkedToppings, checkedCheeses);
     var newPizzaPrice = newPizza.findPrice();
     order.pizzas.push(newPizza);
-    $('#order-helper #pizzas').text(order.pizzas.length);
+    $('.pizzas').text(order.pizzas.length);
     $(this).trigger('reset');
     $('#item-added').modal('show');
     $('#item').text('Pizza');
@@ -57,7 +57,7 @@ $(function() {
       var selectedDrink = $('input:radio[name=drinks]:checked');
       if (selectedDrink.val()) {
         order.drinks += parseInt(selectedDrink.length);
-        $('#order-helper #drinks').text(order.drinks);
+        $('.drinks').text(order.drinks);
         $(this).trigger('reset');
         $('#item-added').modal('show');
         $('#item').text('1 ' + selectedDrink.val())
@@ -69,7 +69,7 @@ $(function() {
       var selectedExtra = $('input:radio[name=extras]:checked');
       if (selectedExtra.val()) {
         order.extras += parseInt(selectedExtra.length);
-        $('#order-helper #extras').text(order.extras);
+        $('.extras').text(order.extras);
         $(this).trigger('reset');
         $('#item-added').modal('show');
         $('#item').text(selectedExtra.val());
@@ -90,6 +90,7 @@ $(function() {
       var customer = new Customer(inputName, inputNumber, inputAddress, inputPaymentMethod);
       order.customer.push(customer);
 
+      $('#order-helper').addClass('invisible');
       $('#customer-info').hide();
       $('#confirmation').show();
       $('#name').text(customer.fullName);
