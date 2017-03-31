@@ -34,33 +34,38 @@ Order.prototype.findTotal = function() {
   return orderTotal;
 }
 
-
 $(function() {
   var order = new Order();
   $('form#add-pizza').submit(function(event) {
+    event.preventDefault();
     var selectedSize = parseInt($('select#select-size').val());
     var selectedSauce = parseInt($('select#select-sauce').val());
-    var checkedToppings = parseInt($('input:checkbox[name=toppings]:checked').length);
-    var checkedCheeses = parseInt($('input:checkbox[name=cheeses]:checked').length);
-    var newPizza = new Pizza(selectedSize, selectedSauce, checkedToppings, checkedCheeses);
-    var newPizzaPrice = newPizza.findPrice();
-    order.pizzas.push(newPizza);
-    $('.pizzas').text(order.pizzas.length);
-    $(this).trigger('reset');
-    $('#item-added').modal('show');
-    $('#item').text('Pizza');
-    console.log(newPizza);
-    event.preventDefault();
+
+    if (isNaN(selectedSize) || isNaN(selectedSauce)) {
+      alert('sorry bub');
+    } else {
+      var checkedToppings = parseInt($('input:checkbox[name=toppings]:checked').length);
+      var checkedCheeses = parseInt($('input:checkbox[name=cheeses]:checked').length);
+      var newPizza = new Pizza(selectedSize, selectedSauce, checkedToppings, checkedCheeses);
+      var newPizzaPrice = newPizza.findPrice();
+      order.pizzas.push(newPizza);
+
+      $(this).trigger('reset');
+      $('#item-added').modal('show');
+      $('#item').text('Pizza');
+      $('.pizzas').text(order.pizzas.length);
+
+      $('#continue-btn1').click(function() {
+        $('#add-pizza').hide();
+        $('#drinks-extras').show();
+      });
+    }
   });
 
   $('#item-modal-btn').click(function() {
     $('#item-added').modal('hide');
   });
 
-  $('#continue-btn1').click(function() {
-    $('#add-pizza').hide();
-    $('#drinks-extras').show();
-  });
 
   $('form#add-drinks').submit(function(event) {
     var selectedDrink = $('input:radio[name=drinks]:checked');
@@ -74,6 +79,7 @@ $(function() {
     event.preventDefault();
   });
 
+
   $('form#add-extras').submit(function(event) {
     var selectedExtra = $('input:radio[name=extras]:checked');
     if (selectedExtra.val()) {
@@ -86,28 +92,35 @@ $(function() {
     event.preventDefault();
   });
 
+
   $('#continue-btn2').click(function() {
     $('#drinks-extras').hide();
     $('#customer-info').show();
   });
 
+
   $('form#customer-info').submit(function(event) {
+    event.preventDefault();
     var inputName = $('input#customer-name').val();
     var inputNumber = $('input#customer-number').val();
     var inputAddress = $('input#customer-address').val();
     var inputPaymentMethod = $('select#cash-or-card').val();
-    var customer = new Customer(inputName, inputNumber, inputAddress, inputPaymentMethod);
-    var newTotal = order.findTotal();
-    order.customer.push(customer);
-    console.log(newTotal);
-    $('#order-helper').addClass('invisible');
-    $('#customer-info').hide();
-    $('#output-total').text(newTotal)
-    $('#confirmation').show();
-    $('#name').text(customer.fullName);
-    $('#number').text(customer.number);
-    $('#address').text(customer.address);
-    $('#payment-method').text(customer.paymentMethod);
-    event.preventDefault();
+
+    if (!inputName || !inputNumber || !inputAddress || !inputPaymentMethod) {
+      alert('sorry bub'); //make this form validation better
+    } else {
+      var customer = new Customer(inputName, inputNumber, inputAddress, inputPaymentMethod);
+      var newTotal = order.findTotal();
+      order.customer.push(customer);
+
+      $('#order-helper').addClass('invisible');
+      $('#customer-info').hide();
+      $('#output-total').text(newTotal)
+      $('#confirmation').show();
+      $('#name').text(customer.fullName);
+      $('#number').text(customer.number);
+      $('#address').text(customer.address);
+      $('#payment-method').text(customer.paymentMethod);
+    }
   });
 });
