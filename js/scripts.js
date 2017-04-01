@@ -1,3 +1,4 @@
+//stores the data for each pizza that gets added to the order
 function Pizza(size, sauce, toppings, cheeses) {
   this.size = size;
   this.sauce = sauce;
@@ -5,11 +6,13 @@ function Pizza(size, sauce, toppings, cheeses) {
   this.cheeses = cheeses;
 }
 
+//finds the price associated with a Pizza object
 Pizza.prototype.findPrice = function() {
   var price = (this.toppings * 0.8) + (this.size / 2) + (this.sauce) + (this.cheeses * 2 );
   return price;
 }
 
+//stores the data for the user submitting the order
 function Customer(name, number, address, paymentMethod) {
   this.fullName = name;
   this.number = number;
@@ -17,6 +20,7 @@ function Customer(name, number, address, paymentMethod) {
   this.paymentMethod = paymentMethod;
 }
 
+//stores the data for everything that the user has ordered
 function Order() {
   this.pizzas = [];
   this.drinks = 0;
@@ -24,6 +28,8 @@ function Order() {
   this.customer = [];
 }
 
+
+//finds the price associated with an Order object
 Order.prototype.findTotal = function() {
   var pizzasTotal = 0;
   for (var i = 0; i < this.pizzas.length; i++) {
@@ -36,6 +42,7 @@ Order.prototype.findTotal = function() {
 
 $(function() {
   var order = new Order();
+
   $('form#add-pizza').submit(function(event) {
     event.preventDefault();
     var selectedSize = parseInt($('select#select-size').val());
@@ -62,24 +69,25 @@ $(function() {
     }
   });
 
-
+  //this is the 'Close' button inside of the modals
   $('.modal-btn').click(function() {
     $('.modal').modal('hide');
   });
 
-
+  //the first button that lets the user return to a previous screen (second to first)
   $('#back-btn1').click(function() {
     $('#drinks-extras').slideUp('slow');
     $('#add-pizza').slideDown('slow');
   });
 
-
+  //the second and last button that lets the user go back a screen (third to second)
   $('#back-btn2').click(function() {
     $('#customer-info').slideUp('slow');
     $('#drinks-extras').slideDown('slow');
   });
 
 
+  //the two forms where the user inputs drinks and sides/desserts
   $('form#add-drinks').submit(function(event) {
     var selectedDrink = $('input:radio[name=drinks]:checked');
     if (selectedDrink.val()) {

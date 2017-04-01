@@ -13,6 +13,8 @@
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <title>Paulie's Pizza</title>
   </head>
+
+  <!-- ADD-ITEM SUCCESS MODAL -->
   <div class="modal fade" role='dialog' id='item-added'>
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -25,6 +27,8 @@
       </div>
     </div>
   </div>
+
+  <!-- INVALID FORM MODAL -->
   <div class="modal fade" role='dialog' id='invalid-form'>
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -37,12 +41,17 @@
       </div>
     </div>
   </div>
+
+
   <body>
+    <!-- TITLE, IMAGE, ORDER HELPER -->
     <h1 id='page-title'>Paulie's Pizza<span><img src="img/pizza2.png" alt="Slice of pizza" id='header-img'></span></h1>
     <div class="container">
       <div id="order-helper">
         <h4>Your order: <span class='pizzas'>0</span> Pizza(s), <span class='drinks'>0</span> Drink(s), <span class='extras'>0</span> Extra(s)</h4>
       </div>
+
+      <!-- FIRST 'PAGE' -->
       <form id='add-pizza' class="well">
         <div class="form-group">
           <label for="select-size">What size pizza would you like?</label>
@@ -54,6 +63,7 @@
             <option value="16">Extra Large (16 inch)</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="select-sauce">Select which sauce you would like:</label>
           <select class="form-control" id='select-sauce'>
@@ -64,6 +74,7 @@
             <option value="2.5">Parmesan white sauce</option>
           </select>
         </div>
+
         <div class="row ">
           <div class="col-xs-6" id='toppings'>
             <div class="form-group">
@@ -94,6 +105,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-xs-6" id='cheeses'>
             <div class="form-group">
               <label for="cheeses-label">Select which cheese(s) you'd like:</label>
@@ -118,16 +130,20 @@
             </div>
           </div>
         </div>
+
         <button type="submit" class="btn btn-block btn-lg" id='add-pizza-btn'>Add Pizza</button>
         <span class="btn btn-default btn-block btn-lg" id='continue-btn1'>Next Section</span>
       </form>
+
+      <!-- DRINKS AND EXTRAS -->
       <div id='drinks-extras' class="well">
         <button class="btn back-btn" id='back-btn1'><span class="glyphicon glyphicon-arrow-left"></span> I forgot something!</button>
-        <h2>Would you like to add anything else to your order?</h2>
+        <h1>Would you like to add anything else to your order?</h1>
+
         <div class="row">
           <div class="col-xs-6">
+            <h2>Drinks</h2>
             <form id='add-drinks'>
-              <h3>Drinks</h3>
               <div class="form-group">
                 <div class="radio">
                   <label><input type="radio" name="drinks" value="Pepsi">Pepsi</label>
@@ -145,9 +161,10 @@
               </div>
             </form>
           </div>
+
           <div class="col-xs-6">
+            <h2>Sides and Desserts</h2>
             <form id='add-extras'>
-              <h3>Sides and Desserts</h3>
               <div class="form-group">
                 <div class="radio">
                   <label><input type="radio" name="extras" value="Dessert pizza">Dessert Pizza</label>
@@ -168,6 +185,8 @@
         </div>
         <button class="btn btn-block btn-lg" id='continue-btn2'>Next Section</button>
       </div>
+
+      <!-- CUSTOMER INFO FORM -->
       <form id='customer-info' class="well">
         <span class="btn back-btn" id='back-btn2'><span class="glyphicon glyphicon-arrow-left"></span> I forgot something!</span>
         <h2 id='customer-info-title'>We'll need a little more information to complete your delivery</h2>
@@ -193,9 +212,11 @@
         </div>
         <button type="submit" class="btn btn-block btn-lg" id='confirmation-btn'>Confirm Delivery</button>
       </form>
+
+      <!-- CONFIRMATION 'PAGE' -->
       <div id="confirmation" class="well">
         <h1 id='order-placed'>Your order has been placed</h1>
-        <div class="row"  id='order-details'>
+        <div class="row" id='order-details'>
           <div class="col-sm-6">
             <div class="confirmation-col">
               <h2>The Goods:</h2>
@@ -220,6 +241,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-sm-6">
             <div class="confirmation-col">
               <h2>The Details:</h2>
@@ -228,11 +250,13 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-sm-12">
             <h2 id='thank-you'>Thank you!</h2>
           </div>
         </div>
+
         <div class="text-center">
           <button class="btn" id='refresh-btn'>Return to Home <span class="glyphicon glyphicon-home"></span></button>
         </div>
