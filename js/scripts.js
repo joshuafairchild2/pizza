@@ -56,8 +56,8 @@ $(function() {
       $('.pizzas').text(order.pizzas.length);
 
       $('#continue-btn1').click(function() {
-        $('#add-pizza').hide();
-        $('#drinks-extras').show();
+        $('#add-pizza').slideUp('slow');
+        $('#drinks-extras').slideDown('slow');
       });
     }
   });
@@ -68,11 +68,15 @@ $(function() {
   });
 
 
-  $('#back-btn').click(function() {
-    $('#drinks-extras').hide();
-    $('#add-pizza').show();
+  $('#back-btn1').click(function() {
+    $('#drinks-extras').slideUp('slow');
+    $('#add-pizza').slideDown('slow');
   });
 
+  $('#back-btn2').click(function() {
+    $('#customer-info').slideUp('slow');
+    $('#drinks-extras').slideDown('slow');
+  });
 
   $('form#add-drinks').submit(function(event) {
     var selectedDrink = $('input:radio[name=drinks]:checked');
@@ -101,8 +105,8 @@ $(function() {
 
 
   $('#continue-btn2').click(function() {
-    $('#drinks-extras').hide();
-    $('#customer-info').show();
+    $('#drinks-extras').slideUp('slow');
+    $('#customer-info').slideDown('slow');
   });
 
 
@@ -121,9 +125,9 @@ $(function() {
       order.customer.push(customer);
 
       $('#order-helper').addClass('invisible');
-      $('#customer-info').hide();
+      $('#customer-info').slideUp('slow');
       $('#output-total').text(newTotal)
-      $('#confirmation').show();
+      $('#confirmation').slideDown('slow');
       $('#name').text(customer.fullName);
       $('#number').text(customer.number);
       $('#address').text(customer.address);
