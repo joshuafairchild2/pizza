@@ -52,9 +52,10 @@ body {
 
 #back-btn {
   background-color: #a9a9a9;
+  margin-bottom: 30px;
 }
 
-#add-pizza-btn, #item-modal-btn {
+#add-pizza-btn, .modal-btn {
   background-color: #d9534f;
   font-size: 20px;
   font-weight: bold;
