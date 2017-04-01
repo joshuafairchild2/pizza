@@ -123,6 +123,10 @@ body {
   border-right: solid 3px black;
 }
 
+.flex {
+  display: flex;
+}
+
 .well {
   margin-top: 10px;
   background-color: #CAEBF2;
