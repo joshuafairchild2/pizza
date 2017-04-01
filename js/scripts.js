@@ -123,7 +123,7 @@ $(function() {
       $('#invalid-form').modal('show');
     } else {
       var customer = new Customer(inputName, inputNumber, inputAddress, inputPaymentMethod);
-      var newTotal = order.findTotal();
+      var newTotal = order.findTotal().toFixed(2);
       order.customer.push(customer);
 
       $('#order-helper').addClass('invisible');
