@@ -30,7 +30,7 @@ Order.prototype.findTotal = function() {
     pizzasTotal += this.pizzas[i].findPrice();
   }
   var extrasTotal = this.extras * 3;
-  var orderTotal = pizzasTotal + this.drinks + extrasTotal;
+  var orderTotal = pizzasTotal + this.drinks + extrasTotal + 4; //4 is for the delivery fee
   return orderTotal;
 }
 
@@ -73,10 +73,12 @@ $(function() {
     $('#add-pizza').slideDown('slow');
   });
 
+
   $('#back-btn2').click(function() {
     $('#customer-info').slideUp('slow');
     $('#drinks-extras').slideDown('slow');
   });
+
 
   $('form#add-drinks').submit(function(event) {
     var selectedDrink = $('input:radio[name=drinks]:checked');
