@@ -9,16 +9,16 @@ body {
 
 #drinks-extras {
   font-size: 18pt;
-  display: none;
+  /*display: none;*/
 }
 
 #customer-info {
   font-size: 18pt;
-  display: none;
+  /*display: none;*/
 }
 
 #confirmation {
-  display: none;
+  /*display: none;*/
 }
 
 #order-helper {
@@ -171,4 +171,34 @@ body {
 
 .receipt-section {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  #order-helper h4 {
+    font-size: 11pt;
+  }
+
+  #add-pizza, #drinks-extras, #customer-info, #add-drink-btn, #add-extra-btn {
+    font-size: 14pt;
+  }
+
+  #continue-btn1, #continue-btn2, #confirmation-btn, #add-pizza-btn, .modal-btn, .confirmation-col {
+    font-size: 16pt;
+  }
+
+  #drinks-extras h1, #customer-info-title {
+    font-size: 20pt;
+  }
+
+  #order-placed {
+    font-size: 24pt;
+  }
+
+  #thank-you {
+    font-size: 40pt;
+  }
+
+  .drinks-extras-titles {
+    height: 45px;
+  }
 }
