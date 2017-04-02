@@ -9,16 +9,16 @@ body {
 
 #drinks-extras {
   font-size: 18pt;
-  /*display: none;*/
+  display: none;
 }
 
 #customer-info {
   font-size: 18pt;
-  /*display: none;*/
+  display: none;
 }
 
 #confirmation {
-  /*display: none;*/
+  display: none;
 }
 
 #order-helper {
