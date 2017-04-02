@@ -23,7 +23,7 @@ This is a webpage where the user has the pleasure of ordering a pizza from a web
 * Clone this repository
 `git clone https://github.com/joshuafairchild1/pizza`
 
-* Navigate to "index.html" within the root directory and open it with your preferred web browser (Preferrably chrome :heart:)
+* Navigate to "index.html" within the root directory and open it with any modern web browser (Preferably chrome :heart:)
 
 #### Technologies Used
 * HTML
